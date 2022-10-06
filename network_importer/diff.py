@@ -22,12 +22,16 @@ class NetworkImporterDiff(Diff):
     @classmethod
     def order_children_interface(cls, children):
         """Return the interface children ordered order."""
+        print(f"order_children_interface() children: {children}")
+        
         intfs_lags = defaultdict(list)
         intfs_regs = defaultdict(list)
         intfs_lag_members = defaultdict(list)
 
         for child_name, child in children.items():
+            print(f"child_name: {child_name}; child: {child}")
             action = child.action
+            print(f"action: {action}")
 
             if action is None:
                 action = "update"
@@ -50,6 +54,7 @@ class NetworkImporterDiff(Diff):
                     intfs_regs[action].append(child_name)
 
             else:
+                print("This should not be happening!!!")
                 raise Exception("invalid DiffElement")
 
         sorted_intfs = intfs_regs["create"]

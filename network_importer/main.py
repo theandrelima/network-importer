@@ -86,6 +86,7 @@ class NetworkImporter:
         if not self.nornir:
             self.build_inventory(limit=limit)
 
+        print(f"config.SETTINGS: {config.SETTINGS}")
         # --------------------------------------------------------
         # Creating required directories on local filesystem
         # --------------------------------------------------------
@@ -102,11 +103,15 @@ class NetworkImporter:
         # --------------------------------------------------------
         LOGGER.info("Import SOT Model")
         sot_path = config.SETTINGS.adapters.sot_class.split(".")
+        print(f"sot_path: {sot_path}")
         sot_settings = config.SETTINGS.adapters.sot_settings
+        print(f"sot_settings: {sot_settings}")
         sot_adapter = getattr(importlib.import_module(".".join(sot_path[0:-1])), sot_path[-1])
+        print(f"sot_adapter: {sot_adapter}")
 
         try:
             self.sot = sot_adapter(nornir=self.nornir, settings=sot_settings)
+            print(f"self.sot: {self.sot}")
             self.sot.load()
         except ValidationError as exc:
             print(f"Configuration not valid, found {len(exc.errors())} error(s)")
@@ -119,12 +124,16 @@ class NetworkImporter:
 
         LOGGER.info("Import Network Model")
         network_adapter_path = config.SETTINGS.adapters.network_class.split(".")
+        print(f"network_adapter_path: {network_adapter_path}")
         network_adapter_settings = config.SETTINGS.adapters.network_settings
+        print(f"network_adapter_settings: {network_adapter_settings}")
         network_adapter = getattr(
             importlib.import_module(".".join(network_adapter_path[0:-1])), network_adapter_path[-1]
         )
+        print(f"network_adapter: {network_adapter}")
         try:
             self.network = network_adapter(nornir=self.nornir, settings=network_adapter_settings)
+            print(f"self.network: {self.network}")
             self.network.load()
         except ValidationError as exc:
             print(f"Configuration not valid, found {len(exc.errors())} error(s)")

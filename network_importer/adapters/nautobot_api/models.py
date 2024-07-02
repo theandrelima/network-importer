@@ -24,16 +24,16 @@ LOGGER = logging.getLogger("network-importer")
 class NautobotSite(Site):
     """Extension of the Site model."""
 
-    remote_id: Optional[str]
+    remote_id: Optional[str] = None
 
 
 class NautobotDevice(Device):
     """Extension of the Device model."""
 
-    remote_id: Optional[str]
-    primary_ip: Optional[str]
+    remote_id: Optional[str] = None
+    primary_ip: Optional[str] = None
 
-    device_tag_id: Optional[str]
+    device_tag_id: Optional[str] = None
 
     def get_device_tag_id(self):
         """Get the Nautobot id of the tag for this device.
@@ -60,8 +60,8 @@ class NautobotDevice(Device):
 class NautobotInterface(Interface):
     """Extension of the Interface model."""
 
-    remote_id: Optional[str]
-    connected_endpoint_type: Optional[str]
+    remote_id: Optional[str] = None
+    connected_endpoint_type: Optional[str] = None
 
     def translate_attrs_for_nautobot(self, attrs):  # pylint: disable=too-many-branches
         """Translate interface attributes into Nautobot format.
@@ -280,7 +280,7 @@ class NautobotInterface(Interface):
 class NautobotIPAddress(IPAddress):
     """Extension of the IPAddress model."""
 
-    remote_id: Optional[str]
+    remote_id: Optional[str] = None
 
     def translate_attrs_for_nautobot(self, attrs=None):  # pylint: disable=unused-argument
         """Translate IP address attributes into Nautobot format.
@@ -396,7 +396,7 @@ class NautobotIPAddress(IPAddress):
 class NautobotPrefix(Prefix):
     """Extension of the Prefix model."""
 
-    remote_id: Optional[str]
+    remote_id: Optional[str] = None
 
     def translate_attrs_for_nautobot(self, attrs):
         """Translate prefix attributes into Nautobot format.
@@ -482,7 +482,7 @@ class NautobotPrefix(Prefix):
 class NautobotVlan(Vlan):
     """Extension of the Vlan model."""
 
-    remote_id: Optional[str]
+    remote_id: Optional[str] = None
     tag_prefix: str = "device="
 
     def translate_attrs_for_nautobot(self, attrs):
@@ -629,9 +629,9 @@ class NautobotVlan(Vlan):
 class NautobotCable(Cable):
     """Extension of the Cable model."""
 
-    remote_id: Optional[str]
-    termination_a_id: Optional[str]
-    termination_z_id: Optional[str]
+    remote_id: Optional[str] = None
+    termination_a_id: Optional[str] = None
+    termination_z_id: Optional[str] = None
 
     @classmethod
     def create(cls, diffsync: "DiffSync", ids: dict, attrs: dict) -> Optional["DiffSyncModel"]:

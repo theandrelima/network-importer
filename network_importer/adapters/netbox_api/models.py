@@ -24,16 +24,16 @@ LOGGER = logging.getLogger("network-importer")
 class NetboxSite(Site):
     """Extension of the Site model."""
 
-    remote_id: Optional[int]
+    remote_id: Optional[int] = None
 
 
 class NetboxDevice(Device):
     """Extension of the Device model."""
 
-    remote_id: Optional[int]
-    primary_ip: Optional[str]
+    remote_id: Optional[int] = None
+    primary_ip: Optional[str] = None
 
-    device_tag_id: Optional[int]
+    device_tag_id: Optional[int] = None
 
     def get_device_tag_id(self):
         """Get the Netbox id of the tag for this device.
@@ -59,8 +59,8 @@ class NetboxDevice(Device):
 class NetboxInterface(Interface):
     """Extension of the Interface model."""
 
-    remote_id: Optional[int]
-    connected_endpoint_type: Optional[str]
+    remote_id: Optional[int] = None
+    connected_endpoint_type: Optional[str] = None
 
     def translate_attrs_for_netbox(self, attrs):  # pylint: disable=too-many-branches
         """Translate interface attributes into Netbox format.
@@ -279,7 +279,7 @@ class NetboxInterface(Interface):
 class NetboxIPAddress(IPAddress):
     """Extension of the IPAddress model."""
 
-    remote_id: Optional[int]
+    remote_id: Optional[int] = None
 
     def translate_attrs_for_netbox(self, attrs=None):  # pylint: disable=unused-argument
         """Translate IP address attributes into NetBox format.
@@ -430,7 +430,7 @@ class NetboxIPAddressPre29(NetboxIPAddress):
 class NetboxPrefix(Prefix):
     """Extension of the Prefix model."""
 
-    remote_id: Optional[int]
+    remote_id: Optional[int] = None
 
     def translate_attrs_for_netbox(self, attrs):
         """Translate prefix attributes into Netbox format.
@@ -516,7 +516,7 @@ class NetboxPrefix(Prefix):
 class NetboxVlan(Vlan):
     """Extension of the Vlan model."""
 
-    remote_id: Optional[int]
+    remote_id: Optional[int] = None
     tag_prefix: str = "device="
 
     def translate_attrs_for_netbox(self, attrs):
@@ -655,7 +655,7 @@ class NetboxVlan(Vlan):
 class NetboxVlanPre29(NetboxVlan):
     """Extension of the Vlan model."""
 
-    remote_id: Optional[int]
+    remote_id: Optional[int] = None
     tag_prefix: str = "device="
 
     def translate_attrs_for_netbox(self, attrs):
@@ -737,9 +737,9 @@ class NetboxVlanPre29(NetboxVlan):
 class NetboxCable(Cable):
     """Extension of the Cable model."""
 
-    remote_id: Optional[int]
-    termination_a_id: Optional[int]
-    termination_z_id: Optional[int]
+    remote_id: Optional[int] = None
+    termination_a_id: Optional[int] = None
+    termination_z_id: Optional[int] = None
 
     @classmethod
     def create(cls, diffsync: "DiffSync", ids: dict, attrs: dict) -> Optional["DiffSyncModel"]:

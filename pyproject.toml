@@ -37,6 +37,7 @@ nornir-napalm = "^0.1.2"
 nornir-utils = "^0.1.2"
 nornir-netmiko = "^0.1.1"
 pybatfish = "2023.5.12.784"
+pydantic-settings = "^2.3.4"
 
 [tool.poetry.dev-dependencies]
 bandit = "*"

@@ -10,7 +10,7 @@ class AdapterSettings(BaseSettings):
     """Config settings for the netbox_api adapter. Not used currently."""
 
     model_flag_tags: List[str] = list()  # List of tags that defines what objects to assign the model_flag to.
-    model_flag: Optional[DiffSyncModelFlags] = None # The model flag that will be applied to objects based on tag.
+    model_flag: Optional[DiffSyncModelFlags] = None  # The model flag that will be applied to objects based on tag.
 
 
 class InventorySettings(BaseSettings):

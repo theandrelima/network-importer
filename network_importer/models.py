@@ -123,6 +123,7 @@ class Prefix(DiffSyncModel):
     site_name: Optional[str] = None
     vlan: Optional[str] = None
 
+
 class Cable(DiffSyncModel):
     """Cable Model based on DiffSyncModel."""
 

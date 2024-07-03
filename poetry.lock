@@ -698,17 +698,24 @@ tests = ["noseofyeti[black] (==2.4.1)", "pytest (==7.2.1)"]
 
 [[package]]
 name = "diffsync"
-version = "1.4.0"
+version = "2.0.0"
 description = "Library to easily sync/diff/update 2 different data sources"
 optional = false
-python-versions = ">=3.6.2,<4.0.0"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "diffsync-1.4.0-py3-none-any.whl", hash = "sha256:92f4b54e7cd813180c1c88c43ac1885fbf7dd2ab6e6f119b80c22705c02a604c"},
-    {file = "diffsync-1.4.0.tar.gz", hash = "sha256:34b432290f59a342bb71607a2221717d3f1c24e33aa558aa09cfbed2025ee2ac"},
+    {file = "diffsync-2.0.0-py3-none-any.whl", hash = "sha256:59f864a115abc5b0aa3b9db0d44deff59c81cd5469e5894326c27e29511e3aab"},
+    {file = "diffsync-2.0.0.tar.gz", hash = "sha256:712bc85a24f49ef6075344dc3a16c85e27b1416154c46fd5de7acf72e8321a9b"},
 ]
 
+[package.dependencies]
+colorama = ">=0.4.3,<0.5.0"
+packaging = ">=21.3,<24.0"
+pydantic = ">=2.0.0,<3.0.0"
+structlog = ">=20.1.0,<23.0.0"
+typing-extensions = {version = ">=4.0.1", markers = "python_version < \"3.11\""}
+
 [package.extras]
-docs = ["colorama (>=0.4.3,<0.5.0)", "dataclasses (>=0.7,<0.8)", "m2r2 (>=0.2.7,<0.3.0)", "pydantic (>=1.7.4,!=1.8,!=1.8.1,<2.0.0)", "sphinx (>=4.0.2,<5.0.0)", "sphinx-rtd-theme (>=0.5.2,<0.6.0)", "structlog (>=20.1.0,<22.0.0)", "toml (>=0.10.2,<0.11.0)"]
+redis = ["redis (>=4.3,<5.0)"]
 
 [[package]]
 name = "dill"
@@ -4125,4 +4132,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.0"
-content-hash = "f02375f51755c9c29b4cc7a9bb052f70737c59481bfe3a4be5cfdc70a34fc0d0"
+content-hash = "52030ab93d7924f9bb1c794b550bee88066f5c8c2172639833aecc958a384c70"

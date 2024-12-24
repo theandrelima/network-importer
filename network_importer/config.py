@@ -39,6 +39,7 @@ DEFAULT_BACKENDS = {
 
 
 class BatfishSettings(BaseSettings):
+    """Settings definition for the Batfish section of the configuration."""
     address: str = Field(default="localhost", env="BATFISH_ADDRESS")
     network_name: str = Field(default="network-importer", env="BATFISH_NETWORK_NAME")
     snapshot_name: str = Field(default="latest", env="BATFISH_SNAPSHOT_NAME")
@@ -49,6 +50,7 @@ class BatfishSettings(BaseSettings):
 
 
 class NetworkSettings(BaseSettings):
+    """Settings definition for the Network section of the configuration."""
     login: Optional[str] = Field(default=None, env="NETWORK_DEVICE_LOGIN")
     password: Optional[str] = Field(default=None, env="NETWORK_DEVICE_PWD")
     enable: bool = Field(default=True, env="NETWORK_DEVICE_ENABLE")

@@ -18,7 +18,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8.0"
+python = "^3.10"
 pynetbox = ">=5.0,<8.0"
 toml = "^0.10"
 nornir = "^3.0"
@@ -36,8 +36,10 @@ pynautobot = "^1.0.2"
 nornir-napalm = "^0.1.2"
 nornir-utils = "^0.1.2"
 nornir-netmiko = "^0.1.1"
-pybatfish = "2023.5.12.784"
+pybatfish = "2024.7.22.1569"
 pydantic-settings = "^2.3.4"
+pandas = "^2.2.0"
+numpy = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 bandit = "*"
